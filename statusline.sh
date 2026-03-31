@@ -1,7 +1,6 @@
 #!/bin/bash
 
 input=$(cat)
-user=$(whoami)
 cwd=$(echo "$input" | jq -r '.workspace.current_dir' | sed "s|$HOME|~|g" | rev | cut -d'/' -f1-2 | rev)
 model=$(echo "$input" | jq -r '.model.display_name')
 time=$(date +%H:%M)
@@ -22,7 +21,7 @@ C='\033[38;2;23;146;153m'
 R='\033[0m'
 T='\033[38;2;76;79;105m'
 
-printf "${C}${user}${R}:${B}${cwd}${R}"
+printf "${B}${cwd}${R}"
 [ -n "$branch" ] && printf " ${G}${branch}${Y}${status}${R}"
 [ -n "$remaining" ] && printf " ${M}ctx:${remaining}%%${R}"
 printf " ${T}${model}${R} ${Y}${time}${R}"
