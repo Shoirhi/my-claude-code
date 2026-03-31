@@ -44,6 +44,12 @@ cd ../
 sudo rm -r agent-skills
 ```
 
+### Figma
+https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/#claude-code
+```
+/plugin install figma@claude-plugins-official
+```
+
 ## Status Line Configuration
 1. Create the `~/.claude/statusline.sh` file.
 2. Add the following configuration to `~/.claude/settings.json`:

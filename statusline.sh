@@ -2,7 +2,7 @@
 
 input=$(cat)
 user=$(whoami)
-cwd=$(echo "$input" | jq -r '.workspace.current_dir' | sed "s|$HOME|~|g")
+cwd=$(echo "$input" | jq -r '.workspace.current_dir' | sed "s|$HOME|~|g" | rev | cut -d'/' -f1-2 | rev)
 model=$(echo "$input" | jq -r '.model.display_name')
 time=$(date +%H:%M)
 remaining=$(echo "$input" | jq -r '.context_window.remaining_percentage // empty')
